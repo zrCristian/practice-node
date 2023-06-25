@@ -1,0 +1,226 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Merriweather Sans', sans-serif;
+    display: flex;
+    /* justify-content: center; */
+    align-items: center;
+    margin: 0;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    background: rgb(228, 241, 246);
+
+}
+
+h1 {
+    margin: 20px 0 0px;
+    font-size: 2em;
+    color: #090e13;
+    text-transform: uppercase;
+    text-shadow: 1px 1px 1px #bbb;
+
+}
+
+.container {
+    display: flex;
+    width: 90vw;
+}
+
+.card {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 80vh;
+    border-radius: 50px;
+    color: #fff;
+    cursor: pointer;
+    flex-grow: 0.5;  /*  flex: 0.5;  */
+    margin: 10px;
+    outline: none;
+    position: relative;
+    box-shadow: 3px 5px 10px rgba(0, 0, 0, .7);
+    transition: flex .7s ease-in;
+}
+
+.card h3 {
+    font-size: 1.25em;
+    text-shadow: 2px 2px 15px #000, 2px 2px 15px #000, 2px 2px 15px #000, -2px -2px 15px #000, -2px -2px 15px #000;
+
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    margin: 0;
+    opacity: 0;
+    transition: opacity .25s ease-in .35s;
+
+}
+
+.icon {
+    position: absolute;
+    font-size: 1.55em;
+    text-shadow: 1px 1px 10px rgba(0 0 0 / .8), -1px -1px 7px rgba(0 0 0 / .8), 2px 2px 15px rgba(0 0 0 / 1);
+    top: 24px;
+    right: 22px;
+    display: none;
+    opacity: 0;
+    transition: transform .3s, opacity .25s ease-in .35s;
+}
+
+.active .icon {
+    display: block;
+    opacity: 1;
+
+}
+
+.card .icon:hover {
+    transform: scale(1.2);
+}
+
+.card.active {
+    flex: 6;
+}
+
+.active h3 {
+    opacity: 1;
+}
+
+.card:first-child {
+    background-image: url(img/Distrito-de-los-Lagos.jpg);
+
+}
+
+.card:nth-child(2) { 
+    background-image: url(img/10-Mejores-Paisajes-de-Argentina.jpg);
+}
+
+.card:nth-child(3) { 
+    background-image: url(img/Cerro-Aconcagua-Mendoza.jpg);
+}
+
+.card:nth-child(4) { 
+    background-image: url(img/Crestas-del-Monte-Fitz-Roy.jpg);
+}
+
+.card:nth-child(5) { 
+    background-image: url(img/Las-Paredes-del-Cañon-de-Talampaya.jpg);
+}
+
+.card:last-child { 
+    background-image: url(img/perito_moreno.jpg);
+}
+
+
+.button {
+    margin-top: 20px;
+    border: 1px solid #aaa;
+    background: #444;
+    padding: 15px;
+    border-radius: 3px;
+
+}
+.button a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 17px;
+    padding: 30px;
+}
+
+
+.modal-img {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, .9);
+    height: 100%;
+    width: 100%;
+    z-index: 10;
+
+    display: none;
+}
+
+.modal-img span {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 2.7em;
+    font-weight: bolder;
+    color: #fff;
+    cursor: pointer;
+    z-index: 20;
+}
+
+
+.add-img {
+    background-image: url();
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-transform: uppercase;
+
+    border-radius: 5px;
+    width: 70vw;
+    height: 75vh;
+
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+
+
+/* responsive */ 
+@media screen and (max-width:1040px) {
+    .add-img {
+        width: 85vw;
+        height: 75vh;
+    }
+}
+
+@media screen and (max-width:900px) {
+    .add-img {
+        width: 90vw;
+        height: 55vh;
+        border-radius: 3px;
+    }
+}
+
+@media screen and (max-width:700px) {
+    .add-img {
+        height: 45vh;
+    }
+}
+
+@media screen and (max-width:500px) {
+    body {
+        background: #fff;
+    }
+
+    .container {
+        width: 100vw;
+    }
+
+    .card:nth-child(4), .card:nth-child(5), .card:last-child {
+        display: none;
+    }
+
+    .modal-img span {
+        top: 23px;
+        right: 23px;
+    }
+
+    .add-img {
+        width: 90vw;
+        height: 37vh;
+        border-radius: 3px;
+    }
+    
+}
