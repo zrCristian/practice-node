@@ -1,23 +1,12 @@
-const { readFile, writeFile } = require("fs")
-const colors = require("colors")
+const { readFilePromise, getText } = require("./08-creating-promises")
 
-function getText(pathFile) {
-    return new Promise(function (resolve, reject) {
-        readFile(pathFile, "utf-8", (err, data) => {
-            if (err) {
-                reject(err)
-            }
-            resolve(data)
-        })
-    })
-}
+getText("./data/frameworks.txt")
+    .then( result => console.log(result, "\n Fin 'getText' \n".bgCyan))
+    .then(() => getText("./data/lenguajes.txt"))
+    .then( res => console.log(res,"\n Fin 'getText' \n".bgCyan))
+    .catch( error => console.log(error))
 
-
-// getText("./data/frameworks.txt")
-//     .then( result => console.log(result))
-//     .then(() => getText("./data/lenguajes.txt"))
-//     .then( res => console.log(res,"\n fin archivo 08-promise \n".bgCyan))
-//     .catch( error => console.log(error))
-
-
-module.exports = getText
+console.log(readFilePromise("./data/texto.txt"))
+readFilePromise("./data/texto.txt", "utf-8")
+    .then(res => console.log(res, "\n Fin 'readFilePromise' \n".bgMagenta))
+    .catch(error => console.log(error))

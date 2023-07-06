@@ -1,4 +1,5 @@
 {
+  "type": "module",
   "scripts": {
     "CLI_nodemon": "nodemon 06-npx.js"
   },
